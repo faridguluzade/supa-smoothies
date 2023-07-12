@@ -7,8 +7,6 @@ const Home = () => {
   const [fetchError, setFetchError] = useState(null);
   const [smoothies, setSmoothies] = useState(null);
 
-  console.log(supabase);
-
   useEffect(() => {
     const fetchSmoothies = async () => {
       const { data, error } = await supabase.from("smoothies").select("*");
@@ -16,7 +14,6 @@ const Home = () => {
       if (error) {
         setFetchError("Could not fetch the smoothies");
         setSmoothies(null);
-        console.log(error);
       }
 
       if (data) {
